@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      th:href="@{https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/home.css}" />
+    <link
+      rel="stylesheet"
+      th:href="@{https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css}"
+    />
+    <title>EATCLEAN</title>
+    <style>
+      .chatbox {
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        font-size: 16px;
+      }
+    
+      .closed {
+        transform: translateY(100%);
+      }
+    
+      .chat-header {
+        background-color: rgba(32, 32, 32, 0.8); 
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+      .toggle-btn, .close-btn {
+        font-size: 24px;
+        cursor: pointer;
+      }
+    
+      .chat-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    
+      .chat-content {
+        height: 200px;
+        padding: 10px;
+        overflow-y: scroll;
+        border-bottom: 1px solid #ccc;
+      }
+    
+      .user-input-container {
+        display: flex;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+    
+      .user-input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        outline: none;
+      }
+    
+      .send-btn {
+        padding: 10px;
+        border: none;
+        background-color:rgba(32, 32, 32, 0.8); 
+        color: #fff;
+        cursor: pointer;
+      }
+    
+      .bot-message {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    
+    
+    
+  </head>
+  <body>
+    <section class="page1">
+
+        
+
+      <nav class="navbar container">
+        <a href="#"><img src="static/img/home/ho.png" alt="" /></a>
+        <ul>
+          <li><a href="home">Home</a></li>
+          <li><a href="products">Menu</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About BMI</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="logo">
+          <a href="search">Search</a>
+          <a href="login">Become A Member</a>
+          <!-- <a href="#">Me</a> -->
+          <a href="gio_hang">My Cart</a>
+
+        </div>
+      </nav>
+      <div class="text container">
+        <p>Welcome to</p>
+        <h1>EatClean Shop</h1>
+        <a href="#" class="btn" id="learn-more-btn">learn more</a>
+      </div>
+    </section>
+
+
+    <br /><br /><br />
+
+    <section id="banner" class="banner">
+      <div class="banner-content">
+        <div class="banner-images">
+          <div class="image-container">
+
+            <img
+              class="i1"
+              src="https://media.istockphoto.com/id/1014363970/vi/anh/salad-rau-t%C6%B0%C6%A1i-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=MxNf5hQcIbwrTSma68qMMhuN9sAHW2WIB-0qC7REjn4="
+              alt="Image 1"
+            />
+            <img
+              class="i2"
+              src="https://media.istockphoto.com/id/178743400/vi/anh/salad-t%C6%B0%C6%A1i.jpg?s=2048x2048&w=is&k=20&c=OMgtb2K-KloQwpcp4evnQ4XOTNvd7KERpL8x-o910Mk="
+              alt="Image 2"
+            />
+            <img
+              class="i3"
+              src="https://media.istockphoto.com/id/537523980/vi/anh/salad-t%C6%B0%C6%A1i-bay-l%C3%AAn.jpg?s=2048x2048&w=is&k=20&c=mgLsAMjyLx4nyZxnUu5TEwILoVs0Gk9uMwuPXJC3i34="
+              alt="Image 3"
+            />
+          </div>
+          <div class="image-container">
+            <img
+              class="i4"
+              src="https://media.istockphoto.com/id/1014363970/vi/anh/salad-rau-t%C6%B0%C6%A1i-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=MxNf5hQcIbwrTSma68qMMhuN9sAHW2WIB-0qC7REjn4="
+              alt="Image 4"
+            />
+            <img
+              class="i5"
+              src="https://media.istockphoto.com/id/178743400/vi/anh/salad-t%C6%B0%C6%A1i.jpg?s=2048x2048&w=is&k=20&c=OMgtb2K-KloQwpcp4evnQ4XOTNvd7KERpL8x-o910Mk="
+              alt="Image 5"
+            />
+            <img
+              class="i6"
+              src="https://media.istockphoto.com/id/537523980/vi/anh/salad-t%C6%B0%C6%A1i-bay-l%C3%AAn.jpg?s=2048x2048&w=is&k=20&c=mgLsAMjyLx4nyZxnUu5TEwILoVs0Gk9uMwuPXJC3i34="
+              alt="Image 6"
+            />
+          </div>
+        </div>
+        <div class="banner-text">
+          <h1>Quality Ingredients</h1>
+          <p>
+            We use only the best ingredients to make one-of-a-kind food for our
+            customers
+          </p>
+          <a href="#" class="btnn" id="shop-now-btnn">Shop Now</a>
+
+        </div>
+      </div>
+    </section>
+
+    <br /><br /><br />
+    <section id="products" class="page2">
+      <h2>Our Products</h2>
+      <div class="horizontal-scroll-container">
+        <div class="product" th:each="product : ${products}">
+          <div class="product-image">
+            <img th:src="@{${product.image}}" th:alt="${product.name}">
+            <div class="add-to-cart">
+              <img src="/static/img/home/cart-icon.png" alt="Cart Icon">
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 th:text="${product.name}">Product Name</h3>
+            <p th:text="${product.description}">Description of Product</p>
+            <a href="#">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="">EATCLEAN SHOP © 2023</a>
+      <a href="">PRIVACY POLICY</a>
+      <a href="">SUPPLIERS</a>
+    </footer>
+
+
+    <div id="chatbox" class="chatbox closed">
+      <div id="chat-header" class="chat-header">
+        <span id="toggle-btn" class="toggle-btn">&#9650;</span>
+        <div id="chat-title" class="chat-title">EatClean Shop</div>
+
+        <span id="close-btn" class="close-btn">&#10005;</span>
+      </div>
+      <div id="chat-content" class="chat-content"></div>
+      <div id="user-input-container" class="user-input-container">
+        <input type="text" id="user-input" class="user-input" placeholder="Type your message..." />
+        <button id="send-btn" class="send-btn">Send</button>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const chatbox = document.getElementById("chatbox");
+        const toggleBtn = document.getElementById("toggle-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const chatContent = document.getElementById("chat-content");
+        const userInput = document.getElementById("user-input");
+        const sendBtn = document.getElementById("send-btn");
+
+        function toggleChatbox() {
+          chatbox.classList.toggle("closed");
+          const icon = chatbox.classList.contains("closed") ? "&#9650;" : "&#9660;";
+          toggleBtn.innerHTML = icon;
+        }
+
+        function appendMessage(message, isUser) {
+          const messageElement = document.createElement("div");
+          messageElement.className = isUser ? "user-message" : "bot-message";
+          messageElement.textContent = message;
+          chatContent.appendChild(messageElement);
+
+          chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        function handleUserInput() {
+          const userMessage = userInput.value.trim();
+          if (userMessage !== "") {
+            appendMessage(`You: ${userMessage}`, true);
+            userInput.value = "";
+
+            setTimeout(() => {
+              let botMessage = "";
+              switch (userMessage.toLowerCase()) {
+                case "hi":
+                case "hello":
+                  botMessage = "Bot: Hi there! How can I assist you today?";
+                  break;
+                case "menu":
+                  botMessage = "Bot: You can view our menu on the 'Menu' page.";
+                  break;
+                case "specials":
+                  botMessage = "Bot: Check out our special offers on the 'Specials' page.";
+                  break;
+                default:
+                  botMessage = "Bot: I'm sorry, I didn't understand that. How can I help you?";
+              }
+
+              appendMessage(botMessage, false);
+            }, 500);
+          }
+        }
+
+        toggleBtn.addEventListener("click", toggleChatbox);
+        closeBtn.addEventListener("click", toggleChatbox);
+        sendBtn.addEventListener("click", handleUserInput);
+        userInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            handleUserInput();
+          }
+        });
+      });
+    </script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>

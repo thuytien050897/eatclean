@@ -1,0 +1,13 @@
+.font h1{
+    padding-top:15px ;
+}
+
+.container{
+    padding-left: 250px;
+}
+
+.cart-content-left button{
+    float: left;
+    padding-inline: 10px;
+}
+

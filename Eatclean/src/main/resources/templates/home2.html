@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"  th:href="@{/static/css/home.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css}">
+    <title>EATCLEAN</title>
+</head>
+<body>
+  <section class="page1">
+    <nav class="navbar container">
+      <a th:href="@{/home2/{id}(id=${login.id})}">
+        <img th:src="@{/static/img/home/ho.png}" alt="" />
+    </a>    
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="products">Menu</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About BMI</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul>
+        <div class="logo">
+            <a th:href="@{/canhan/{id}(id=${login.id})}">Me</a>
+            <a th:href="@{/search2/{id}(id=${login.id})}">Search</a>
+            <a th:href="@{/gio_hang/{id}(id=${login.id})}">My Cart</a> 
+            <a th:href="@{/login}">Logout</a> <!-- Thêm đoạn này để dẫn đến trang login -->
+        </div>
+    </ul>
+    
+      
+    </nav>
+    <div class="text container">
+      <p>Welcome to</p>
+      <h1>EatClean Shop</h1>
+      <a href="#" class="btn" id="learn-more-btn">learn more</a>
+    </div>
+  </section>
+  <br /><br /><br />
+    
+    
+  <section id="products" class="page2">
+    <h2>Our Products</h2>
+    <div class="horizontal-scroll-container">
+      <div class="product" th:each="product : ${products}">
+        <div class="product-image">
+          <img th:src="@{${product.image}}" th:alt="${product.name}">
+          <div class="add-to-cart">
+            <img src="/static/img/home/cart-icon.png" alt="Cart Icon">
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 th:text="${product.name}">Product Name</h3>
+          <p th:text="${product.description}">Description of Product</p>
+          <a href="#">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="footer">
+    <a href="">EATCLEAN SHOP © 2023</a>
+    <a href="">PRIVACY POLICY</a>
+    <a href="">SUPPLIERS</a>
+</footer>
+
+
+<script th:src="@{/static/script.js}"></script>
+</body>
+</html>

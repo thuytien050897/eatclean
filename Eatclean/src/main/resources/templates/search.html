@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/search.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>EATCLEAN</title>
+    <script>
+        function findBook() {
+            let keywordInput = document.querySelector(".input100");
+            let keyword = keywordInput.value;
+            window.location = "/search?keyword=" + keyword;
+        }
+    </script>
+</head>
+<body>
+    <section class="page1">
+        <nav class="navbar container">
+            <a href="#"><img src="static/img/home/ho.png" alt="" /></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="products">Menu</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About BMI</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="logo">
+                <a href="login">Me</a>
+                <a href="login">My Cart</a>
+                <a href="#">My To-Do-List</a>
+            </div>
+        </nav>
+        <div style="display: flex; ">
+            <div class="text container" style="width: 500px; margin-left: 100px; margin-top: 300px;">
+                <p>Welcome to </p>
+                <h1>EatClean Shop</h1>
+                <a href="#" class="btn">learn more</a>
+            </div>
+            <div class="find" style="margin-top: 350px;">
+                <input class="input100" type="text" name="keyword" placeholder="Nhập thực đơn, đồ ăn cần tìm" style="font-size: 15pt;">
+                <button class="timkiem" type="button" onclick="findBook()"></button>
+            </div>
+        </div>
+    </section>
+    <div class="title">
+        <h1>Danh sách gói ăn</h1>
+        <hr style="color: green; height: 2px;">
+    </div>
+    <div class="ds">
+        <ul style="display: flex; flex-wrap: wrap; max-width: 100%;">
+            <li th:each="product : ${products}" style="flex-basis: 25%;">
+                <a>
+                    <div class="item" bis_skin_checked="1">
+                        <h3><a title="CHẾ ĐỘ ĂN GIẢM CÂN KETO 7 NGÀY" style="text-decoration: none; color: black;"><span th:text="${product.name}"></span></a></h3>
+                        <img th:src="@{${product.image}}" alt="img">
+                        <p><span th:text="${product.status}"></span></p>
+                        <p class="sp_gia" style="font-weight: bold;font-size: 20px; color: black;">Giá: <span class="giakm" style="font-size: 20pt; color: red;" th:text="${product.price}"> đ</span></p>
+                        <div style="width: 150px; border: 1px solid black; margin-bottom: 20px; margin-top: 20px; margin-left: 90px; position: absolute;">
+                            <a href="login" class="xct" style="width: 100px;">Đặt hàng</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <footer class="footer">
+        <a >EATCLEAN SHOP © 2023</a>
+        <a >PRIVACY POLICY</a>
+        <a >SUPPLIERS</a>
+    </footer>
+    
+</body>
+</html>

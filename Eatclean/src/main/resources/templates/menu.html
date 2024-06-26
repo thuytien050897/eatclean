@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/menu.css}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <title>MENU</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/menu.css" />
+</head>
+<body>
+    <section class="page1">
+        <nav class="navbar container">
+            <a href="#"><img src="/static/img/home/ho.png" alt=""></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About BMI</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="logo">
+                <a href="#">Search</a>
+                <a href="#">Become A Member</a>
+                <!-- <a href="#">Me</a> -->
+                <!-- <a href="#">My Cart</a> -->
+            </div>
+        </nav>
+    </section>
+    <section id="banner" class="banner">
+        <div class="banner-content">
+          <div class="banner-images">
+            <div class="image-container">
+              <img class="i1" src="https://media.istockphoto.com/id/1014363970/vi/anh/salad-rau-t%C6%B0%C6%A1i-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=MxNf5hQcIbwrTSma68qMMhuN9sAHW2WIB-0qC7REjn4=" alt="Image 1">
+              <img class="i2" src="https://media.istockphoto.com/id/178743400/vi/anh/salad-t%C6%B0%C6%A1i.jpg?s=2048x2048&w=is&k=20&c=OMgtb2K-KloQwpcp4evnQ4XOTNvd7KERpL8x-o910Mk=" alt="Image 2">
+              <img class="i3" src="https://media.istockphoto.com/id/537523980/vi/anh/salad-t%C6%B0%C6%A1i-bay-l%C3%AAn.jpg?s=2048x2048&w=is&k=20&c=mgLsAMjyLx4nyZxnUu5TEwILoVs0Gk9uMwuPXJC3i34=" alt="Image 3">
+            </div>
+            <div class="image-container">
+              <img class="i4" src="https://media.istockphoto.com/id/1014363970/vi/anh/salad-rau-t%C6%B0%C6%A1i-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=MxNf5hQcIbwrTSma68qMMhuN9sAHW2WIB-0qC7REjn4=" alt="Image 4">
+              <img class="i5" src="https://media.istockphoto.com/id/178743400/vi/anh/salad-t%C6%B0%C6%A1i.jpg?s=2048x2048&w=is&k=20&c=OMgtb2K-KloQwpcp4evnQ4XOTNvd7KERpL8x-o910Mk=" alt="Image 5">
+              <img class="i6" src="https://media.istockphoto.com/id/537523980/vi/anh/salad-t%C6%B0%C6%A1i-bay-l%C3%AAn.jpg?s=2048x2048&w=is&k=20&c=mgLsAMjyLx4nyZxnUu5TEwILoVs0Gk9uMwuPXJC3i34=" alt="Image 6">
+            </div>
+          </div>
+          <div class="banner-text">
+            <h1>Quality Ingredients</h1>
+            <p>We use only the best ingredients to make one-of-a-kind food for our customers</p>
+            <a href="#" class="btnn" id="shop-now-btnn">Shop Now</a>
+          </div>
+        </div>
+      </section>
+      <br><br><br>
+      <section class="page3" id="blog">
+        <div class="menu-container">
+          <ul class="menu">
+            <li class="menu-item" onclick="showProducts('category1'); return false;" id="menu-item-category1">
+                <a href="#">Danh mục 1</a>
+            </li>
+            <li class="menu-item" onclick="showProducts('category2'); return false;" id="menu-item-category2">
+                <a href="#">Danh mục 2</a>
+            </li>
+            <li class="menu-item" onclick="showProducts('category3'); return false;" id="menu-item-category3">
+                <a href="#">Danh mục 3</a>
+            </li>
+            <li class="menu-item" onclick="showProducts('category4'); return false;" id="menu-item-category4">
+                <a href="#">Danh mục 4</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div id="product-container">
+          <div class="product-category category1">
+            <h2>Danh mục 1</h2>
+    
+            <div class="horizontal-scroll-container">
+              <div class="product" th:each="product : ${products}">
+                <div class="product-image">
+                  <img th:src="@{${product.image}}" th:alt="${product.name}">
+                  <div class="add-to-cart">
+                    <img src="/static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 th:text="${product.name}">Product Name</h3>
+                  <p th:text="${product.description}">Description of Product</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+            </div>
+            <h2>Danh mục 2</h2>
+                <div class="product">
+                  <div class="product-image">
+                    <img src="../static/img/home/pic1.jpg" alt="Product 1">
+                    <div class="add-to-cart">
+                      <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3>Product 4</h3>
+                    <p>Description of Product 4.</p>
+                    <a href="#">Buy Now</a>
+                  </div>
+                </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic2.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 5</h3>
+                  <p>Description of Product 5.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic3.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 6</h3>
+                  <p>Description of Product 6.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+          </div>
+          <div class="product-category category3">
+            <h2>Danh mục 3</h2>
+            <div class="horizontal-scroll-container">
+                <div class="product">
+                  <div class="product-image">
+                    <img src="../static/img/home/pic1.jpg" alt="Product 1">
+                    <div class="add-to-cart">
+                      <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3>Product 7</h3>
+                    <p>Description of Product 7.</p>
+                    <a href="#">Buy Now</a>
+                  </div>
+                </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic2.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 8</h3>
+                  <p>Description of Product 8.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic3.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 9</h3>
+                  <p>Description of Product 9.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+          </div>
+          <div class="product-category category4">
+            <h2>Danh mục 4</h2>
+            <div class="horizontal-scroll-container">
+                <div class="product">
+                  <div class="product-image">
+                    <img src="../static/img/home/pic1.jpg" alt="Product 1">
+                    <div class="add-to-cart">
+                      <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3>Product 10</h3>
+                    <p>Description of Product 10.</p>
+                    <a href="#">Buy Now</a>
+                  </div>
+                </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic2.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 11</h3>
+                  <p>Description of Product 11.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+              <div class="product">
+                <div class="product-image">
+                  <img src="../static/img/home/pic3.jpg" alt="Product 1">
+                  <div class="add-to-cart">
+                    <img src="../static/img/home/cart-icon.png" alt="Cart Icon">
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3>Product 12</h3>
+                  <p>Description of Product 12.</p>
+                  <a href="#">Buy Now</a>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </section> 
+
+
+
+
+      <footer class="footer">
+        <a href="">EATCLEAN SHOP © 2023</a>
+        <a href="">PRIVACY POLICY</a>
+        <a href="">SUPPLIERS</a>
+    </footer>
+    <script >
+        function showProducts(category) {
+            var productCategories = document.getElementsByClassName("product-category");
+            var menuItems = document.getElementsByClassName("menu-item");
+          
+            for (var i = 0; i < productCategories.length; i++) {
+              var productCategory = productCategories[i];
+          
+              if (productCategory.classList.contains(category) || category === "all") { // Hiển thị sản phẩm của danh mục được chọn hoặc hiển thị tất cả sản phẩm khi không chọn danh mục
+                productCategory.style.display = "block";
+              } else {
+                productCategory.style.display = "none";
+              }
+            }
+          
+            for (var i = 0; i < menuItems.length; i++) {
+              var menuItem = menuItems[i];
+          
+              if (menuItem.id === "menu-item-" + category) {
+                menuItem.classList.add("active");
+              } else {
+                menuItem.classList.remove("active");
+              }
+            }
+          }
+    </script>
+
+</body>
